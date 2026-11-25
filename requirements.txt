@@ -1,0 +1,13 @@
+langchain>=1.4
+langgraph>=1.2
+langchain-aws>=1.8
+boto3
+streamlit>=1.46
+plotly
+pandas
+pypdf
+python-docx
+python-dotenv
+presidio-analyzer
+presidio-anonymizer
+mlflow>=3.10

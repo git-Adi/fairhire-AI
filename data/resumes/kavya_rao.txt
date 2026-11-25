@@ -1,0 +1,23 @@
+KAVYA RAO
+kavya.rao@protonmail.com | +91 90080 77665 | Hyderabad
+
+SUMMARY
+Data engineer moving into ML engineering. 5 years building large-scale data platforms.
+
+EXPERIENCE
+Senior Data Engineer, LogiTrack (2021 - Present)
+- Built Spark Structured Streaming pipelines processing 5TB/day on AWS EMR and Glue.
+- Built the feature pipeline for the delivery-time prediction model with the ML team; deployed the model with Docker on ECS.
+- Set up data quality checks with Great Expectations and CI/CD for pipelines with Jenkins.
+
+Data Engineer, RetailOne (2019 - 2021)
+- Migrated the on-prem warehouse to Snowflake; built dbt models used by 60 analysts.
+
+PROJECTS
+- Personal project: built a RAG chatbot over company wiki pages using LangChain and FAISS.
+
+EDUCATION
+B.E., Information Technology, Osmania University
+
+SKILLS
+Python, SQL, Spark, Airflow, dbt, AWS (EMR, Glue, ECS), Docker, Snowflake, LangChain

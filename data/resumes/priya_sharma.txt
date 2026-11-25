@@ -1,0 +1,23 @@
+PRIYA SHARMA
+Email: priya.sharma.ml@outlook.com | Phone: +91 99001 23456
+Gender: Female | Date of Birth: 14/03/1992 | Marital Status: Married
+
+SUMMARY
+Machine learning engineer with 6 years of experience in deep learning and NLP research-to-production.
+
+EXPERIENCE
+Senior Data Scientist, HealthAxis (2020 - Present)
+- Built clinical-notes NER and classification models (BERT, PyTorch); F1 improved from 0.78 to 0.91.
+- Fine-tuned open-source LLMs with LoRA for medical summarisation; built prompt evaluation sets with doctors.
+- Worked under Dr. Rahul Verma (Head of AI) on the hospital readmission risk model.
+- Deployed one model as a Flask API on an EC2 instance. Portfolio and code: github.com/priya-sharma-ml
+
+Data Scientist, Analytica Labs (2018 - 2020)
+- Built churn and demand-forecasting models for retail clients (scikit-learn, LightGBM).
+- Presented findings to client leadership every quarter.
+
+EDUCATION
+M.Tech, Artificial Intelligence, IIIT Hyderabad
+
+SKILLS
+Python, PyTorch, Hugging Face Transformers, LoRA, scikit-learn, SQL, Flask

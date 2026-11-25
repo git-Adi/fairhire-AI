@@ -1,0 +1,25 @@
+Job Title: Senior Machine Learning Engineer
+Team: Applied AI Platform
+Location: Bengaluru (Hybrid)
+
+About the role
+We are looking for a Senior ML Engineer to design, build and run production ML and GenAI systems
+that power customer-facing products used by millions of users.
+
+What you will do
+- Build and deploy ML models (classification, ranking, forecasting) to production on AWS
+- Build LLM-powered features: RAG pipelines, agents, and evaluation frameworks
+- Own model serving, monitoring and CI/CD for ML (Docker, Kubernetes, SageMaker)
+- Work with data engineers on feature pipelines (Spark, SQL)
+- Mentor junior engineers and review code and designs
+
+Must have
+- 5+ years of professional experience in ML engineering
+- Strong Python
+- Hands-on experience deploying and monitoring models in production on a public cloud
+- Experience with LLMs / GenAI (RAG, prompt engineering, or agents)
+
+Nice to have
+- Spark / large-scale data processing
+- Experience mentoring or leading a small team
+- Experience with LangChain / LangGraph or similar frameworks

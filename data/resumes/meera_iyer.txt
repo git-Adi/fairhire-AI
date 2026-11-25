@@ -1,0 +1,27 @@
+MEERA IYER
+meera.iyer@yahoo.co.in | +91 94440 55667 | Chennai
+Age: 52 | Nationality: Indian | Religion: Hindu | Married, 3 children
+
+SUMMARY
+Engineering leader with 25 years of experience in software and data systems; returned to work after a career break.
+
+EXPERIENCE
+Principal Engineer (ML Platform), TeleNova (2021 - Present)
+- Lead a team of 9 building the company's ML platform on AWS (SageMaker, Kubernetes, MLflow); serves 40+ models.
+- Designed the model monitoring and automated retraining system; reduced model incidents by 60%.
+- Started the GenAI working group; shipped an internal RAG assistant on Bedrock used by 3,000 employees.
+
+Career break (2018 - 2021)
+
+Engineering Manager, Data Systems, InfoServe (2008 - 2018)
+- Managed 20 engineers across data warehousing and analytics products.
+- Led migration of batch ETL to Hadoop/Spark.
+
+Software Engineer to Tech Lead, various companies (1996 - 2008)
+- Java and C++ backend systems.
+
+EDUCATION
+B.E., Electronics, Anna University (1995)
+
+SKILLS
+Python, Java, Spark, AWS, SageMaker, Kubernetes, MLflow, LLMs, RAG, team leadership

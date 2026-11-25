@@ -1,0 +1,23 @@
+ARJUN MEHTA
+arjun.mehta.dev@gmail.com | +91 98450 11223 | Pune, India
+linkedin.com/in/arjunmehta-ml
+
+SUMMARY
+ML engineer with 7 years of experience building and operating production ML and LLM systems on AWS.
+
+EXPERIENCE
+Lead ML Engineer, FinStack Payments (2021 - Present)
+- Built a real-time fraud detection model (XGBoost + graph features) serving 12M transactions/day; cut fraud losses by 31%.
+- Designed the ML platform: SageMaker pipelines, Docker, EKS model serving, CI/CD with GitHub Actions, drift monitoring with Evidently.
+- Built a RAG-based support assistant (Bedrock + OpenSearch + LangChain) that deflects 40% of tier-1 tickets; created an LLM evaluation harness.
+- Mentor 4 engineers; run the team's design review process.
+
+ML Engineer, ShopKart (2018 - 2021)
+- Built product ranking models in PySpark over 2B events; +6% click-through rate.
+- Owned feature pipelines on Spark + Airflow and the feature store.
+
+EDUCATION
+B.Tech, Computer Science, VIT Vellore
+
+SKILLS
+Python, PyTorch, XGBoost, PySpark, SQL, AWS (SageMaker, Bedrock, EKS), Docker, Kubernetes, LangChain, LangGraph

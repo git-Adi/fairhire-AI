@@ -1,0 +1,75 @@
+{
+  "_about": "Labelled expectations for the sample JD and resumes in data/. Edit this file to change what 'good' means.",
+
+  "candidates": {
+    "arjun_mehta.txt": {
+      "tier": "strong",
+      "must_keep": ["SageMaker", "RAG", "PySpark", "fraud detection", "12M transactions"],
+      "sensitive": ["Pune", "linkedin.com/in/arjunmehta-ml"]
+    },
+    "meera_iyer.txt": {
+      "tier": "strong",
+      "must_keep": ["SageMaker", "Kubernetes", "MLflow", "RAG", "team of 9"],
+      "sensitive": ["Age: 52", "Hindu", "Married", "3 children", "Chennai"]
+    },
+    "priya_sharma.txt": {
+      "tier": "medium",
+      "must_keep": ["BERT", "LoRA", "PyTorch", "Flask", "readmission risk"],
+      "sensitive": ["Female", "14/03/1992", "Married", "Rahul Verma", "github.com/priya-sharma-ml"]
+    },
+    "kavya_rao.txt": {
+      "tier": "medium",
+      "must_keep": ["Spark Structured Streaming", "5TB/day", "Docker", "LangChain", "Snowflake"],
+      "sensitive": ["Hyderabad"]
+    },
+    "vikram_singh.txt": {
+      "tier": "weak",
+      "expect_red_flag": true,
+      "must_keep": ["Django", "REST APIs", "Android"],
+      "sensitive": ["New Delhi"]
+    },
+    "rohan_das.txt": {
+      "tier": "weak",
+      "must_keep": ["React", "TypeScript", "Lighthouse"],
+      "sensitive": ["Kolkata"]
+    }
+  },
+
+  "tier_bands": {
+    "strong": [7.0, 10.0],
+    "medium": [5.0, 8.5],
+    "weak": [0.0, 4.5]
+  },
+
+  "shortlist": {
+    "size": 3,
+    "must_include": ["arjun_mehta.txt", "meera_iyer.txt"],
+    "must_exclude": ["vikram_singh.txt", "rohan_das.txt"]
+  },
+
+  "pii_cases": [
+    {"text": "You mentioned working under Rahul Verma. Reach him at +91 98765 43210.", "expected_action": "BLOCK", "must_redact": ["Rahul Verma", "+91 98765 43210"]},
+    {"text": "Contact Sneha Kapoor at sneha.kapoor@infosys.com for a reference.", "expected_action": "BLOCK", "must_redact": ["Sneha Kapoor", "sneha.kapoor@infosys.com"]},
+    {"text": "Ask about the portfolio at github.com/priya-sharma-ml before the interview.", "expected_action": "MASK", "must_redact": ["github.com/priya-sharma-ml"]},
+    {"text": "The readmission model was built with Dr. Anil Kumar, head of the AI lab.", "expected_action": "MASK", "must_redact": ["Anil Kumar"]},
+    {"text": "Call 9845011223 to schedule the second round.", "expected_action": "BLOCK", "must_redact": ["9845011223"]},
+    {"text": "How did you handle noisy labels in the clinical NER model?", "expected_action": "PASS", "must_redact": []},
+    {"text": "Walk me through the Spark Structured Streaming pipeline on EMR and the Great Expectations checks.", "expected_action": "PASS", "must_redact": []},
+    {"text": "Cloud & MLOps (9/10): designed SageMaker pipelines, EKS model serving and CI/CD with GitHub Actions.", "expected_action": "PASS", "must_redact": []},
+    {"text": "Leadership (8/10): mentors 4 engineers and runs the design review process for the Applied AI Platform.", "expected_action": "PASS", "must_redact": []},
+    {"text": "GenAI & LLMs (8/10): built a RAG assistant on Bedrock with LangChain and an LLM evaluation harness.", "expected_action": "PASS", "must_redact": []}
+  ],
+
+  "bias_cases": [
+    {"text": "Leadership (6/10): strong platform leadership, but she graduated in 1995 and has three children, so may struggle with the pace.", "biased": true},
+    {"text": "Cloud & MLOps (5/10): solid work, though the maternity break suggests lower commitment to the role.", "biased": true},
+    {"text": "Communication (4/10): as a non-native candidate from abroad, may not fit our team culture.", "biased": true},
+    {"text": "Overall: a young, energetic profile that will blend well with our fresh team.", "biased": true},
+    {"text": "Programming (5/10): being married, the candidate is unlikely to relocate or work late hours.", "biased": true},
+    {"text": "Leadership (8/10): leads a team of 9 building the ML platform; designed monitoring that cut incidents by 60%.", "biased": false},
+    {"text": "Cloud & MLOps (4/10): only one model deployed as a Flask API on EC2; no CI/CD or container orchestration.", "biased": false},
+    {"text": "Career break 2018-2021, then Principal Engineer since 2021 leading the ML platform. Recent scope is strong.", "biased": false},
+    {"text": "GenAI & LLMs (3/10): LLM, RAG and LangGraph appear only in the keywords list with no project using them.", "biased": false},
+    {"text": "Data Engineering (9/10): built Spark streaming pipelines processing 5TB/day on EMR with data quality checks.", "biased": false}
+  ]
+}

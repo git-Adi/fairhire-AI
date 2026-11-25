@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .h { font-family: 'Avenir Next', 'Sora', 'Segoe UI', Arial, sans-serif; }
+      .b { font-family: 'Helvetica Neue', 'Source Sans 3', Arial, sans-serif; }
+      .m { font-family: Menlo, 'SF Mono', Consolas, monospace; }
+      .pill { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; fill: #FFFFFF; }
+      .tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.8px; }
+    </style>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ED0000"/>
+    </marker>
+    <marker id="arrowGrey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#808080"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+
+  <!-- ============================================================ title -->
+  <text x="60" y="80" class="h" font-size="42" font-weight="600" fill="#ED0000">FairHire AI: agentic resume screening flow</text>
+  <text x="60" y="116" class="h" font-size="19" font-style="italic" fill="#000000">Blind, auditable screening with LangGraph agents on Amazon Bedrock</text>
+
+  <!-- legend -->
+  <g class="b" font-size="14" fill="#000000">
+    <rect x="891" y="104" width="24" height="16" rx="3" fill="#ED0000"/>
+    <text x="921" y="117">Agent (Nova Pro)</text>
+    <rect x="1051" y="104" width="24" height="16" rx="3" fill="#000000"/>
+    <text x="1081" y="117">Guardrail</text>
+    <rect x="1164" y="104" width="24" height="16" rx="3" fill="#FFFFFF" stroke="#ED0000" stroke-width="1.5"/>
+    <text x="1194" y="117">Skill</text>
+    <rect x="1247" y="104" width="24" height="16" rx="3" fill="none" stroke="#ED0000" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="1277" y="117">Hook (every tool call)</text>
+    <rect x="1445" y="104" width="24" height="16" rx="3" fill="#808080"/>
+    <text x="1475" y="117">Data store</text>
+  </g>
+
+  <!-- ============================================================ A. input + vault -->
+  <rect x="60" y="160" width="200" height="250" rx="18" fill="#F2F2F2"/>
+  <rect x="60" y="160" width="200" height="34" rx="8" fill="#000000"/>
+  <text x="160" y="182" class="pill" text-anchor="middle">HR INPUT</text>
+  <rect x="76" y="210" width="168" height="80" rx="10" fill="#FFFFFF"/>
+  <text x="92" y="240" class="b" font-size="16" font-weight="700">Job description</text>
+  <text x="92" y="263" class="b" font-size="13" fill="#4D4D4D">role to hire for</text>
+  <rect x="76" y="302" width="168" height="92" rx="10" fill="#FFFFFF"/>
+  <text x="92" y="331" class="b" font-size="16" font-weight="700">Resumes</text>
+  <text x="92" y="354" class="b" font-size="13" fill="#4D4D4D">PDF · DOCX · TXT</text>
+  <text x="92" y="374" class="b" font-size="13" fill="#4D4D4D">text only, no photos</text>
+
+  <line x1="160" y1="410" x2="160" y2="436" stroke="#808080" stroke-width="2" marker-end="url(#arrowGrey)"/>
+
+  <rect x="60" y="440" width="200" height="150" rx="12" fill="#808080"/>
+  <text x="78" y="472" class="h" font-size="18" font-weight="600" fill="#FFFFFF">Identity vault</text>
+  <text x="78" y="500" class="b" font-size="13" fill="#FFFFFF">names · emails · phones</text>
+  <text x="78" y="521" class="b" font-size="13" fill="#FFFFFF">kept server-side,</text>
+  <text x="78" y="542" class="b" font-size="13" fill="#FFFFFF">keyed by C-01, C-02 …</text>
+  <text x="78" y="568" class="b" font-size="13" font-weight="700" fill="#FFFFFF">never sent to the LLM</text>
+
+  <!-- ============================================================ B. LangGraph workflow -->
+  <rect x="290" y="160" width="1010" height="520" rx="22" fill="#F2F2F2"/>
+  <rect x="290" y="160" width="1010" height="36" rx="8" fill="#000000"/>
+  <text x="795" y="184" class="pill" text-anchor="middle">LANGGRAPH WORKFLOW  ·  3 AGENTS  ·  2 GUARDRAILS  ·  AMAZON BEDROCK</text>
+
+  <!-- input -> JD Analyzer (drawn over the panel so the arrowhead shows) -->
+  <path d="M260 250 L280 250 L280 338 L306 338" fill="none" stroke="#ED0000" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <!-- vault -> anonymize hook -->
+  <path d="M260 515 L284 515 L284 612 L306 612" fill="none" stroke="#808080" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowGrey)"/>
+
+  <!-- feedback loops -->
+  <path d="M795 268 C795 222, 594 222, 594 264" fill="none" stroke="#ED0000" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrowRed)"/>
+  <text x="694" y="226" class="b" font-size="12.5" font-style="italic" fill="#ED0000" text-anchor="middle">biased → re-score, then human review</text>
+  <path d="M1197 268 C1197 222, 996 222, 996 264" fill="none" stroke="#ED0000" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrowRed)"/>
+  <text x="1096" y="226" class="b" font-size="12.5" font-style="italic" fill="#ED0000" text-anchor="middle">contact leak → regenerate</text>
+
+  <!-- node 1: JD Analyzer -->
+  <rect x="310" y="270" width="166" height="136" rx="12" fill="#ED0000"/>
+  <text x="326" y="294" class="tag" fill="#FFFFFF">AGENT 1</text>
+  <text x="326" y="321" class="h" font-size="19" font-weight="600" fill="#FFFFFF">JD</text>
+  <text x="326" y="343" class="h" font-size="19" font-weight="600" fill="#FFFFFF">Analyzer</text>
+  <text x="326" y="369" class="b" font-size="13" fill="#FFFFFF">weighted job</text>
+  <text x="326" y="387" class="b" font-size="13" fill="#FFFFFF">profile</text>
+
+  <!-- node 2: Resume Matcher (parallel) -->
+  <rect x="519" y="262" width="166" height="136" rx="12" fill="#ED0000" opacity="0.3"/>
+  <rect x="515" y="266" width="166" height="136" rx="12" fill="#ED0000" opacity="0.55"/>
+  <rect x="511" y="270" width="166" height="136" rx="12" fill="#ED0000"/>
+  <text x="527" y="294" class="tag" fill="#FFFFFF">AGENT 2 · PARALLEL</text>
+  <text x="527" y="321" class="h" font-size="19" font-weight="600" fill="#FFFFFF">Resume</text>
+  <text x="527" y="343" class="h" font-size="19" font-weight="600" fill="#FFFFFF">Matcher ×N</text>
+  <text x="527" y="369" class="b" font-size="13" fill="#FFFFFF">scores every</text>
+  <text x="527" y="387" class="b" font-size="13" fill="#FFFFFF">candidate blind</text>
+
+  <!-- node 3: Bias guardrail -->
+  <rect x="712" y="270" width="166" height="136" rx="12" fill="#000000"/>
+  <text x="728" y="294" class="tag" fill="#FFFFFF">GUARDRAIL 1</text>
+  <text x="728" y="321" class="h" font-size="19" font-weight="600" fill="#FFFFFF">Bias</text>
+  <text x="728" y="343" class="h" font-size="19" font-weight="600" fill="#FFFFFF">guardrail</text>
+  <text x="728" y="369" class="b" font-size="13" fill="#FFFFFF">LLM judge</text>
+  <text x="728" y="387" class="b" font-size="13" fill="#FFFFFF">(Nova Lite)</text>
+
+  <!-- node 4: Interview Designer -->
+  <rect x="913" y="270" width="166" height="136" rx="12" fill="#ED0000"/>
+  <text x="929" y="294" class="tag" fill="#FFFFFF">AGENT 3</text>
+  <text x="929" y="321" class="h" font-size="19" font-weight="600" fill="#FFFFFF">Interview</text>
+  <text x="929" y="343" class="h" font-size="19" font-weight="600" fill="#FFFFFF">Designer</text>
+  <text x="929" y="369" class="b" font-size="13" fill="#FFFFFF">tailored kit for</text>
+  <text x="929" y="387" class="b" font-size="13" fill="#FFFFFF">each shortlisted</text>
+
+  <!-- node 5: PII guardrail -->
+  <rect x="1114" y="270" width="166" height="136" rx="12" fill="#000000"/>
+  <text x="1130" y="294" class="tag" fill="#FFFFFF">GUARDRAIL 2</text>
+  <text x="1130" y="321" class="h" font-size="19" font-weight="600" fill="#FFFFFF">PII</text>
+  <text x="1130" y="343" class="h" font-size="19" font-weight="600" fill="#FFFFFF">guardrail</text>
+  <text x="1130" y="369" class="b" font-size="13" fill="#FFFFFF">Presidio scan of</text>
+  <text x="1130" y="387" class="b" font-size="13" fill="#FFFFFF">every output</text>
+
+  <!-- main flow arrows -->
+  <g stroke="#ED0000" stroke-width="3" marker-end="url(#arrowRed)">
+    <line x1="476" y1="338" x2="507" y2="338"/>
+    <line x1="685" y1="338" x2="708" y2="338"/>
+    <line x1="878" y1="338" x2="909" y2="338"/>
+    <line x1="1079" y1="338" x2="1110" y2="338"/>
+  </g>
+
+  <!-- skills -->
+  <g stroke="#808080" stroke-width="1.5" stroke-dasharray="2 3">
+    <line x1="393" y1="406" x2="393" y2="436"/>
+    <line x1="594" y1="406" x2="594" y2="436"/>
+    <line x1="996" y1="406" x2="996" y2="436"/>
+  </g>
+  <g class="m" font-size="11" fill="#808080">
+    <text x="400" y="426">load_skill</text>
+    <text x="601" y="426">load_skill</text>
+    <text x="1003" y="426">load_skill</text>
+  </g>
+
+  <rect x="300" y="436" width="186" height="72" rx="10" fill="#FFFFFF" stroke="#ED0000" stroke-width="1.5"/>
+  <text x="313" y="456" class="tag" fill="#808080">SKILL</text>
+  <text x="313" y="477" class="b" font-size="13.5" font-weight="700" fill="#ED0000">competency-framework</text>
+  <text x="313" y="497" class="b" font-size="12.5" fill="#4D4D4D">catalogue + levels L1–L4</text>
+
+  <rect x="501" y="436" width="186" height="72" rx="10" fill="#FFFFFF" stroke="#ED0000" stroke-width="1.5"/>
+  <text x="514" y="456" class="tag" fill="#808080">SKILL</text>
+  <text x="514" y="477" class="b" font-size="13.5" font-weight="700" fill="#ED0000">scoring-rubric</text>
+  <text x="514" y="497" class="b" font-size="12.5" fill="#4D4D4D">rules + compute_score.py</text>
+
+  <rect x="903" y="436" width="186" height="72" rx="10" fill="#FFFFFF" stroke="#ED0000" stroke-width="1.5"/>
+  <text x="916" y="456" class="tag" fill="#808080">SKILL</text>
+  <text x="916" y="477" class="b" font-size="13.5" font-weight="700" fill="#ED0000">competency-framework</text>
+  <text x="916" y="497" class="b" font-size="12.5" fill="#4D4D4D">calibrates the questions</text>
+
+  <!-- hooks band -->
+  <rect x="310" y="530" width="970" height="130" rx="14" fill="#FFFFFF" stroke="#ED0000" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="330" y="560" class="b" font-size="14"><tspan font-weight="700" fill="#ED0000" letter-spacing="1.5">HOOKS</tspan><tspan fill="#000000">  deterministic code around every agent tool call (LangChain middleware)</tspan></text>
+  <text x="1262" y="560" class="m" font-size="11.5" fill="#808080" text-anchor="end">load_skill · read_resume · submit_score</text>
+
+  <text x="330" y="592" class="b" font-size="14" font-weight="700">Pre-tool-use  ·  can BLOCK, the agent fixes and retries</text>
+  <rect x="330" y="605" width="7" height="7" fill="#ED0000"/>
+  <text x="345" y="613" class="b" font-size="13" fill="#4D4D4D"><tspan class="m" font-size="12.5" fill="#000000">enforce_candidate_scope</tspan>  one agent, one candidate</text>
+  <rect x="330" y="627" width="7" height="7" fill="#ED0000"/>
+  <text x="345" y="635" class="b" font-size="13" fill="#4D4D4D"><tspan class="m" font-size="12.5" fill="#000000">validate_score_submission</tspan>  complete, evidenced card</text>
+
+  <text x="805" y="592" class="b" font-size="14" font-weight="700">Post-tool-use  ·  rewrites what the model sees</text>
+  <rect x="805" y="605" width="7" height="7" fill="#ED0000"/>
+  <text x="820" y="613" class="b" font-size="13" fill="#4D4D4D"><tspan class="m" font-size="12.5" fill="#000000">anonymize_resume</tspan>  strips identity before reading</text>
+  <rect x="805" y="627" width="7" height="7" fill="#ED0000"/>
+  <text x="820" y="635" class="b" font-size="13" fill="#4D4D4D"><tspan class="m" font-size="12.5" fill="#000000">record_score</tspan>  writes scores.csv + audit log</text>
+
+  <!-- ============================================================ C. outputs -->
+  <path d="M1280 338 L1326 338" stroke="#ED0000" stroke-width="3" marker-end="url(#arrowRed)"/>
+
+  <rect x="1330" y="160" width="210" height="262" rx="18" fill="#F2F2F2"/>
+  <rect x="1330" y="160" width="210" height="34" rx="8" fill="#000000"/>
+  <text x="1435" y="182" class="pill" text-anchor="middle">STREAMLIT UI</text>
+  <g class="b" font-size="13.5" font-weight="700" fill="#000000">
+    <rect x="1346" y="208" width="178" height="42" rx="9" fill="#FFFFFF"/>
+    <text x="1360" y="234">Leaderboard · radar</text>
+    <rect x="1346" y="260" width="178" height="42" rx="9" fill="#FFFFFF"/>
+    <text x="1360" y="286">Interview kits (.docx)</text>
+    <rect x="1346" y="312" width="178" height="42" rx="9" fill="#FFFFFF"/>
+    <text x="1360" y="338">Guardrail Lab</text>
+    <rect x="1346" y="364" width="178" height="42" rx="9" fill="#FFFFFF"/>
+    <text x="1360" y="390">Live activity feed</text>
+  </g>
+
+  <rect x="1330" y="450" width="210" height="112" rx="12" fill="#808080"/>
+  <text x="1348" y="480" class="h" font-size="18" font-weight="600" fill="#FFFFFF">Audit trail</text>
+  <text x="1348" y="505" class="m" font-size="12.5" fill="#FFFFFF">audit_log.jsonl</text>
+  <text x="1348" y="525" class="m" font-size="12.5" fill="#FFFFFF">scores.csv</text>
+  <text x="1348" y="548" class="b" font-size="12.5" fill="#FFFFFF">every hook + guardrail event</text>
+
+  <path d="M1280 595 L1305 595 L1305 506 L1326 506" fill="none" stroke="#808080" stroke-width="2" marker-end="url(#arrowGrey)"/>
+
+  <!-- reveal identities: vault -> UI, outside the LLM -->
+  <path d="M160 590 L160 702 L1562 702 L1562 300 L1544 300" fill="none" stroke="#808080" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrowGrey)"/>
+  <rect x="470" y="690" width="660" height="24" fill="#FFFFFF"/>
+  <text x="800" y="707" class="b" font-size="13.5" fill="#4D4D4D" text-anchor="middle"><tspan font-weight="700" fill="#000000">Reveal identities</tspan>  names joined back by plain code after ranking, never through the LLM</text>
+
+  <!-- ============================================================ D. evals -->
+  <rect x="60" y="730" width="1480" height="140" rx="18" fill="#F2F2F2"/>
+  <rect x="60" y="730" width="190" height="140" rx="18" fill="#ED0000"/>
+  <text x="155" y="788" class="h" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="middle">EVALS</text>
+  <text x="155" y="813" class="b" font-size="15" fill="#FFFFFF" text-anchor="middle">MLflow 3</text>
+  <text x="155" y="834" class="b" font-size="15" fill="#FFFFFF" text-anchor="middle">+ redacted tracing</text>
+
+  <g class="b">
+    <rect x="270" y="746" width="300" height="108" rx="12" fill="#FFFFFF"/>
+    <text x="286" y="774" font-size="15" font-weight="700" fill="#ED0000">PII guardrail suite</text>
+    <text x="286" y="798" font-size="13" fill="#000000">right PASS / MASK / BLOCK call</text>
+    <text x="286" y="818" font-size="13" fill="#000000">redaction recall</text>
+    <text x="286" y="838" font-size="13" fill="#000000">no false positives on tech text</text>
+
+    <rect x="586" y="746" width="300" height="108" rx="12" fill="#FFFFFF"/>
+    <text x="602" y="774" font-size="15" font-weight="700" fill="#ED0000">Bias guardrail suite</text>
+    <text x="602" y="798" font-size="13" fill="#000000">judge verdict vs labelled cases</text>
+    <text x="602" y="818" font-size="13" fill="#000000">precision and recall</text>
+
+    <rect x="902" y="746" width="300" height="108" rx="12" fill="#FFFFFF"/>
+    <text x="918" y="774" font-size="15" font-weight="700" fill="#ED0000">Anonymizer suite</text>
+    <text x="918" y="798" font-size="13" fill="#000000">no identity survives the hook</text>
+    <text x="918" y="818" font-size="13" fill="#000000">key evidence preserved</text>
+    <text x="918" y="838" font-size="13" fill="#000000">no LLM calls</text>
+
+    <rect x="1218" y="746" width="300" height="108" rx="12" fill="#FFFFFF"/>
+    <text x="1234" y="774" font-size="15" font-weight="700" fill="#ED0000">Pipeline suite + traces</text>
+    <text x="1234" y="798" font-size="13" fill="#000000">tier bands · grounded evidence</text>
+    <text x="1234" y="818" font-size="13" fill="#000000">shortlist, ranking, kit quality</text>
+    <text x="1234" y="838" font-size="13" fill="#000000">saved traces checked: 0 identity leaks</text>
+  </g>
+</svg>

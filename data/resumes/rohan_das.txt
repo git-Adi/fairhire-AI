@@ -1,0 +1,20 @@
+ROHAN DAS
+rohan.das.codes@gmail.com | +91 97300 44556 | Kolkata
+
+SUMMARY
+Frontend developer with 3 years of experience building fast, accessible web apps.
+
+EXPERIENCE
+Frontend Engineer, TravelNest (2022 - Present)
+- Rebuilt the booking flow in React + TypeScript; improved Lighthouse performance score from 54 to 92.
+- Built a design system used across 4 product teams.
+- Integrated a third-party chatbot widget into the help centre.
+
+Junior Web Developer, PixelCraft Studio (2021 - 2022)
+- Built marketing websites in Next.js and Tailwind CSS.
+
+EDUCATION
+B.Sc., Computer Science, Jadavpur University
+
+SKILLS
+JavaScript, TypeScript, React, Next.js, Tailwind CSS, Jest, basic Python
